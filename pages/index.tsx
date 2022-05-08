@@ -4,7 +4,8 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
-  const a = 7
+  const a = 7;
+
   return (
     <div className={styles.container}>
       <Head>
