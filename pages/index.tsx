@@ -14,11 +14,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Image
-        src="/piyawat.jpg"
-        alt="card__image"
-        className={styles.card__image}
-        width="600"
-        height="400"
+        src="https://i.pravatar.cc/40?img=3"
+        alt="user__image"
+        className={styles.user__image}
+        width="40"
+        height="40"
       />
       <main className={styles.main}>
         <h1 className={styles.title}>

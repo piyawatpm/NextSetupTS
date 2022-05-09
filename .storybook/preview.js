@@ -29,8 +29,8 @@ const customViewports = Object.fromEntries(
 const OriginalNextImage = NextImage.default;
 
 Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
+  configurable: false,
+  value: (props) => <OriginalNextImage {...props} unoptimized={true} />,
 });
 
 export const parameters = {
