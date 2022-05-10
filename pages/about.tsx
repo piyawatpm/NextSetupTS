@@ -3,6 +3,7 @@ import SidebarLayout from '../components/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './page';
 
 const About: NextPageWithLayout = () => {
+  const google = 'google';
   return (
     <section>
       <h2>Layout Example (About)</h2>
