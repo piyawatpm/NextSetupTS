@@ -2,6 +2,7 @@
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 import * as NextImage from 'next/image';
 import '../pages/globals.css';
+import { AuthProvider } from '../context/auth/AuthContext';
 
 const BREAKPOINTS_INT = {
   xs: 375,
@@ -43,12 +44,6 @@ Object.defineProperty(NextImage, '__esModule', {
   configurable: true,
   value: true,
 });
-export const decorators = [
-  (Story) => (
-      <Story />
-  ),
-];
-
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -63,3 +58,11 @@ export const parameters = {
     Provider: RouterContext.Provider,
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <AuthProvider>
+      <Story />
+    </AuthProvider>
+  ),
+];
