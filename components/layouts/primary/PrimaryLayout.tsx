@@ -6,8 +6,7 @@ export interface IPrimaryLayout {
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
-    console.log("primary re-render");
-    
+
   return (
     <>
       <Head>

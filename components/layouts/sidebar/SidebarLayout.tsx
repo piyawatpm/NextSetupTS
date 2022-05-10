@@ -4,11 +4,10 @@ import styles from './SidebarLayout.module.css';
 export interface ISidebarLayout {}
 
 const SidebarLayout: React.FC<ISidebarLayout> = () => {
-  console.log('sidebar re-render');
   return (
     <nav className={styles.nav}>
       <input className={styles.input} placeholder="Search..." />
-      <Link href="/">
+      <Link href="/" className=" text-red-500">
         <a>Home</a>
       </Link>
       <Link href="/about">
