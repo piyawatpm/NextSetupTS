@@ -1,5 +1,7 @@
-import '../styles/globals.css';
+// @ts-check
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import * as NextImage from 'next/image';
+import '../pages/globals.css';
 
 const BREAKPOINTS_INT = {
   xs: 375,
@@ -27,25 +29,26 @@ const customViewports = Object.fromEntries(
 
 // Allow Storybook to handle Next's <Image> component
 const OriginalNextImage = NextImage.default;
-
-// Object.defineProperty(NextImage, 'default', {
-//   configurable: false,
-//   value: (props) => <OriginalNextImage {...props} unoptimized={true} />,
-// });
-
-Object.defineProperty(NextImage, "default", {
+Object.defineProperty(NextImage, 'default', {
   configurable: true,
-  value: (props) => typeof props.src === 'string' ? (
-    <OriginalNextImage {...props} unoptimized blurDataURL={props.src} />
-  ) : (
-    <OriginalNextImage {...props} unoptimized />
+  value: (props) =>
+    typeof props.src === 'string' ? (
+      <OriginalNextImage {...props} unoptimized blurDataURL={props.src} />
+    ) : (
+      <OriginalNextImage {...props} unoptimized />
+    ),
+});
+
+Object.defineProperty(NextImage, '__esModule', {
+  configurable: true,
+  value: true,
+});
+export const decorators = [
+  (Story) => (
+      <Story />
   ),
-});
+];
 
-Object.defineProperty(NextImage, "__esModule", {
-  configurable: true,
-  value: true
-});
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -55,4 +58,8 @@ export const parameters = {
     },
   },
   viewport: { viewports: customViewports },
+  layout: 'fullscreen',
+  nextRouter: {
+    Provider: RouterContext.Provider,
+  },
 };
